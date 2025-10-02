@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - Erli Trans</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header dhe navigim -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>Erli Trans</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Kryefaqja</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="rreth-nesh.html" class="nav-link">Rreth Nesh</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="sherbimet.html" class="nav-link">Shërbimet</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="kontakt.html" class="nav-link active">Kontakt</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Seksioni kryesor -->
+    <main class="page-content">
+        <div class="container">
+            <h1>Na Kontaktoni</h1>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Të Dhënat e Kompanisë</h2>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <h3>Adresa</h3>
+                            <p>Rruga e Kompanisë, Nr. 123<br>Tirana, Shqipëri</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3>Telefon</h3>
+                            <p>+355 XX XXX XXXX</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3>Email</h3>
+                            <p>info@erltrans.com</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3>Orari i Punës</h3>
+                            <p>E Hënë - E Premte: 08:00 - 18:00<br>E Shtunë: 09:00 - 14:00<br>E Dielë: Mbyllur</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h2>Dërgo Një Mesazh</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Emri i Plotë</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefon</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subjekti</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mesazhi</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Dërgo Mesazhin</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Erli Trans</h3>
+                    <p>Transport i sigurt dhe i shpejtë për çdo nevojë.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <p>Email: info@erltrans.com</p>
+                    <p>Telefon: +355 XX XXX XXXX</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Lidhuni me ne</h3>
+                    <div class="social-links">
+                        <a href="#">Facebook</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Erli Trans. Të gjitha të drejtat e rezervuara.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
