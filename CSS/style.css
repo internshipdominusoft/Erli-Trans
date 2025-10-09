@@ -663,5 +663,48 @@ color: var(--gray);
             box-shadow: 0 0 0 0 rgba(220, 38, 38, 0);
         }
     }
+
+
+    /* error per form */
+    .form-group input:invalid,
+.form-group textarea:invalid {
+    border-color: #dc2626;
+}
+ /* Stilizimi i butonit te dergimit ne formen e kontaktit */
+.contact-form .btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+}
+
+.contact-form .btn {
+    background-color: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+    cursor: pointer;
+}
+
+
+.contact-form .btn:hover:not(:disabled) {
+    background-color: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.18);
+}
+
+.contact-form .btn:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: 0 4px 8px rgba(37, 99, 235, 0.12);
+    filter: brightness(0.95);
+}
+
+.contact-form .btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.12);
+}
+
+.contact-form .btn:disabled {
+    cursor: not-allowed;
+
 }
 

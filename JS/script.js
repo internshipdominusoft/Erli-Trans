@@ -66,15 +66,49 @@ header.classList.remove('scrolled');
 }
 });
 }
+});
 
-// validimi i form, per tu shtuar me vone
+// forma e kontaktit
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-contactForm.addEventListener('submit', function(e) {
-e.preventDefault();
-// per tu validuar
-alert('Formulari u dergua. demonstrim.');
-});
-    }
-}); 
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+ //validimi
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone') ? document.getElementById('phone').value : '';
+    const message = document.getElementById('message').value;
+        
+        if (!name || !email || !message) {
+            alert('Ju lutem plotësoni të gjitha fushat e detyrueshme');
+            return;
+        }
+        
+        if (!email.includes('@')) {
+            alert('Ju lutem shkruani një email valid');
+            return;
+        }
+
+        // Validate phone: optional, but if provided must contain only digits
+        if (phone && !/^\d+$/.test(phone)) {
+            alert('Ju lutem shkruani vetëm numra në fushën e telefonit (pa shkronja ose simbole).');
+            return;
+        }
+        
+        const submitBtn = this.querySelector('button[type="submit"]');
+        submitBtn.textContent = 'Duke dërguar...';
+        submitBtn.disabled = true;
+        
+        setTimeout(() => {
+            alert('Faleminderit! Mesazhi juaj u dërgua me sukses.');
+            contactForm.reset();
+            submitBtn.textContent = 'Dërgo Mesazhin';
+            submitBtn.disabled = false;
+        }, 1500);
+    });
+}
+
+
+
 
