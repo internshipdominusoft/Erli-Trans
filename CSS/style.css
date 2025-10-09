@@ -664,6 +664,7 @@ color: var(--gray);
         }
     }
 
+
     /* error per form */
     .form-group input:invalid,
 .form-group textarea:invalid {
@@ -704,5 +705,6 @@ color: var(--gray);
 
 .contact-form .btn:disabled {
     cursor: not-allowed;
+
 }
 
