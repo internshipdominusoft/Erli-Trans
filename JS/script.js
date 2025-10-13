@@ -109,6 +109,69 @@ if (contactForm) {
     });
 }
 
+// scroll animation
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
+};
+
+const observer = new IntersectionObserver((entries, observer) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('animated');
+}
+});
+}, observerOptions);
+
+document.addEventListener('DOMContentLoaded', () => {
+    // stats
+    const statItems = document.querySelectorAll('.stat-item');
+    statItems.forEach((item, index) => {
+        item.style.transitionDelay = `${index * 0.1}s`;
+        observer.observe(item);
+    });
+
+    // headers
+    const sectionHeaders = document.querySelectorAll('.section-header');
+    sectionHeaders.forEach(header => {
+        observer.observe(header);
+    });
+
+    // cards
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach((card, index) => {
+        card.style.transitionDelay = `${index * 0.1}s`;
+        observer.observe(card);
+    });
+
+    //pse ne
+    const whyUsGrid = document.querySelector('.why-us-grid');
+    if (whyUsGrid) observer.observe(whyUsGrid);
+
+    //features
+    const featureItems = document.querySelectorAll('.feature');
+    featureItems.forEach((item, index) => {
+        item.style.transitionDelay = `${index * 0.1}s`;
+        observer.observe(item);
+    });
+
+    //kontakt
+    const ctaSection = document.querySelector('.cta');
+    if (ctaSection) observer.observe(ctaSection); 
+});
+
+//nav bubble ne scroll
+const header = document.querySelector('.header');
+
+if (header) {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+}
 
 
 
