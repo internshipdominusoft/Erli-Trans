@@ -90,7 +90,6 @@ if (contactForm) {
             return;
         }
 
-        // Validate phone: optional, but if provided must contain only digits
         if (phone && !/^\d+$/.test(phone)) {
             alert('Ju lutem shkruani vetëm numra në fushën e telefonit (pa shkronja ose simbole).');
             return;
@@ -173,5 +172,91 @@ if (header) {
     });
 }
 
+// Function i calculator
+function initializeDeliveryCalculator() {
+    const countrySelect = document.getElementById('country-select');
+    const deliveryResult = document.getElementById('delivery-result');
+    const resultCountry = document.getElementById('result-country');
+    const resultDays = document.getElementById('result-days');
+    
+    if (!countrySelect) return;
+    
+    // Delivery time
+    const deliveryTimes = {
+        'albania': { days: '1-2', text: 'Dorëzim brenda 1-2 ditësh' },
+        'kosovo': { days: '2-3', text: 'Dorëzim brenda 2-3 ditësh' },
+        'north-macedonia': { days: '2-3', text: 'Dorëzim brenda 2-3 ditësh' },
+        'montenegro': { days: '2-4', text: 'Dorëzim brenda 2-4 ditësh' },
+        'greece': { days: '3-5', text: 'Dorëzim brenda 3-5 ditësh' },
+        'italy': { days: '4-6', text: 'Dorëzim brenda 4-6 ditësh' },
+        'germany': { days: '5-7', text: 'Dorëzim brenda 5-7 ditësh' },
+        'liechtenstein': { days: '5-7', text: 'Dorëzim brenda 5-7 ditësh' },
+        'austria': { days: '5-7', text: 'Dorëzim brenda 5-7 ditësh' },
+        'france': { days: '6-8', text: 'Dorëzim brenda 6-8 ditësh' },
+        'uk': { days: '6-8', text: 'Dorëzim brenda 6-8 ditësh' },
+        'bosnia': { days: '3-4', text: 'Dorëzim brenda 3-4 ditësh' },
+        'switzerland': { days: '5-7', text: 'Dorëzim brenda 5-7 ditësh' },
+        'croatia': { days: '3-5', text: 'Dorëzim brenda 3-5 ditësh' },
+        'bulgaria': { days: '4-6', text: 'Dorëzim brenda 4-6 ditësh' },
+        'serbia': { days: '3-4', text: 'Dorëzim brenda 3-4 ditësh' },
+        'turkey': { days: '7-10', text: 'Dorëzim brenda 7-10 ditësh' },
+        'slovenia': { days: '4-6', text: 'Dorëzim brenda 4-6 ditësh' },
+        'poland': { days: '6-8', text: 'Dorëzim brenda 6-8 ditësh' }
+    };
+    
+    // Display i emrave ne shqip
+    const countryNames = {
+        'albania': 'Shqipëri',
+        'kosovo': 'Kosovë',
+        'north-macedonia': 'Maqedoni e Veriut',
+        'montenegro': 'Mali i Zi',
+        'greece': 'Greqi',
+        'italy': 'Itali',
+        'germany': 'Gjermani',
+        'liechtenstein': 'Lihtenshtajn',
+        'austria': 'Austri',
+        'france': 'Francë',
+        'uk': 'Mbretëri e Bashkuar',
+        'bosnia': 'Bosnje dhe Hercegovinë',
+        'switzerland': 'Zvicër',
+        'croatia': 'Kroaci',
+        'bulgaria': 'Bullgari',
+        'serbia': 'Serbi',
+        'turkey': 'Turqi',
+        'slovenia': 'Slloveni',
+        'poland': 'Poloni'
+    };
+    
+    countrySelect.addEventListener('change', function() {
+        const selectedValue = this.value;
+        
+        if (selectedValue && deliveryTimes[selectedValue]) {
+            const deliveryInfo = deliveryTimes[selectedValue];
+            const countryName = countryNames[selectedValue];
+            
+            resultCountry.textContent = countryName;
+            resultDays.textContent = deliveryInfo.text;
+            
+            // rezultat ,me animacion
+            deliveryResult.style.display = 'flex';
+            deliveryResult.style.animation = 'fadeInUp 0.5s ease';
+            
+            if (typeof observer !== 'undefined') {
+                observer.observe(deliveryResult);
+            }
+        } else {
+            // fshehim rezultatin nqs skemi zgjedhur shtet
+            deliveryResult.style.display = 'none';
+        }
+    });
+    
+    // inicializim ne refresh
+    if (countrySelect.value && deliveryTimes[countrySelect.value]) {
+        countrySelect.dispatchEvent(new Event('change'));
+    }
+}
 
+document.addEventListener('DOMContentLoaded', function() {
+    initializeDeliveryCalculator();
+});
 

@@ -81,14 +81,63 @@
                 
                 <div class="service-detail">
                     <h2>Zonat e Veprimit</h2>
+                    <div class="service-with-map">
+                        <div class="service-map-content">
                     <p>Ne ofrojmë shërbimet tona në një gamë të gjerë zonash gjeografike.</p>
                     <ul>
                         <li>Shërbime në të gjithë Shqipërinë</li>
                         <li>Transport në vendet e Ballkanit</li>
                         <li>Transport në vendet e BE-së</li>
-                        <li>Rrjet i gjerë partnerësh ndërkombëtarë</li>
                     </ul>
-                    <a href="zonat-veprimit.html" class="btn">Mësoni më shumë</a>
+                </div>
+
+                    <div class="service-map">
+                            <img src="images/map.png" alt="Harta e zonave të veprimit - Erli Trans">
+                     </div>
+                    </div>
+
+                    <!-- kalkulator per delivery -->
+                            <div class="delivery-calculator">
+                                <h3>Llogarit Kohën e Dorëzimit</h3>
+                                <div class="calculator-group">
+                                    <label for="country-select">Zgjidh Vendin:</label>
+                                    <select id="country-select" class="country-dropdown">
+                                        <option value="">-- Zgjidh një vend --</option>
+                                        <option value="albania">Shqipëri</option>
+                                        <option value="kosovo">Kosovë</option>
+                                        <option value="north-macedonia">Maqedoni e Veriut</option>
+                                        <option value="montenegro">Mali i Zi</option>
+                                        <option value="greece">Greqi</option>
+                                        <option value="italy">Itali</option>
+                                        <option value="germany">Gjermani</option>
+                                        <option value="liechtenstein">Lihtenshtajn</option>
+                                        <option value="austria">Austri</option>
+                                        <option value="france">Francë</option>
+                                        <option value="uk">Mbretëri e Bashkuar</option>
+                                        <option value="bosnia">Bosnje dhe Hercegovinë</option>
+                                        <option value="switzerland">Zvicër</option>
+                                        <option value="croatia">Kroaci</option>
+                                        <option value="bulgaria">Bullgari</option>
+                                        <option value="serbia">Serbi</option>
+                                        <option value="turkey">Turkey</option>
+                                        <option value="slovenia">Slloveni</option>
+                                        <option value="poland">Poloni</option>
+                                    </select>
+                                </div>
+                                <div id="delivery-result" class="delivery-result" style="display: none;">
+                                    <div class="result-icon">
+                                        <i class="fas fa-truck"></i>
+                                    </div>
+                                    <div class="result-content">
+                                        <h4 id="result-country"></h4>
+                                        <p id="result-days"></p>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                    </div>
+
+                    
                 </div>
             </div>
         </div>
