@@ -77,7 +77,6 @@ background: #fbbf24;
 backdrop-filter: blur(20px);
 border-radius: 50px;
 padding: 0.75rem 2rem;
-box-shadow: 0 8px 32px rgba(30, 64, 175, 0.15);
 border: 1px solid rgba(30, 64, 175, 0.15);
 z-index: 1000; 
 transition: all 0.3s ease;
@@ -156,11 +155,11 @@ box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 display: none;
 flex-direction: column;
 cursor: pointer;
-background: rgba(255, 255, 255, 0.95);
+background: rgba(255, 217, 4, 0.918);
 backdrop-filter: blur(20px);
 border-radius: 8px;
 padding: 0.5rem;
-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+box-shadow: 3px 4px 14px #ffd900d8;
 z-index: 1200;
 }
 
@@ -447,6 +446,13 @@ transform: translateY(-2px);
     gap: 3rem;
 }
 
+.contact-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+
 .contact-details {
     display: flex;
     flex-direction: column;
@@ -552,12 +558,14 @@ footer a:visited,
     color: var(--gray);
 }
 
-.contact-info p {
+.contact-info p,
+.form-comment  {
     display: flex;
     align-items: center;
     gap: 0.75rem;
     margin-bottom: 1rem;
     color: var(--gray);
+    font-size: large;
 }
 
 .contact-info i {
@@ -605,6 +613,21 @@ footer a:visited,
     padding-top: 2rem;
     text-align: center;
     color: var(--gray);
+}
+
+footer .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: flex-start; 
+    margin-left: -20px;
+}
+
+footer .logo img {
+    height: 100px;
+    width: auto;
+    max-width: 180px;
+    object-fit: contain;
 }
 
 /* Responsive Design */
@@ -753,6 +776,7 @@ footer a:visited,
     text-decoration: none;
     font-weight: 600;
     border: 2px solid #dc2626;
+    box-shadow: 3px 4px 14px #dc2626;
     font-size: 0.9rem;
     display: flex;
     align-items: center;
@@ -1221,7 +1245,14 @@ footer a:visited,
     }
     
     .contact-content {
+        display: grid;
         grid-template-columns: 1fr;
+        gap: 2rem;
+        align-items: start;
+    }
+
+    .map-container {
+        height: 300px;
     }
 }
 
@@ -1478,4 +1509,26 @@ footer a:visited,
      .calculator-container {
         grid-column: 1;
     }
+}
+
+.map-section {
+    margin-top: 2rem;
+}
+
+.map-section h2 {
+    margin-bottom: 1rem;
+    color: var(--dark);
+}
+
+.map-container {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    height: 400px;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
 }
