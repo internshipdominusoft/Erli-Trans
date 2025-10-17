@@ -260,3 +260,50 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeDeliveryCalculator();
 });
 
+  // Llogarites cmimesh
+        document.getElementById('priceCalculatorForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const serviceType = document.getElementById('service-type').value;
+            const distance = parseFloat(document.getElementById('distance').value);
+            const weight = parseFloat(document.getElementById('weight').value);
+            
+            if (!serviceType || !distance || !weight) {
+                alert('Ju lutem plotësoni të gjitha fushat!');
+                return;
+            }
+            
+            let basePrice = 0;
+            let serviceName = '';
+            
+            switch(serviceType) {
+                case 'freight':
+                    basePrice = 0.5; // per km
+                    serviceName = 'Transport Mallrash';
+                    break;
+                case 'express':
+                    basePrice = 0.8;
+                    serviceName = 'Transport Ekspres';
+                    break;
+            }
+            
+            const distancePrice = distance * basePrice;
+            const weightPrice = weight * 0.1; // 0.1€ per kg
+            const totalPrice = Math.round(distancePrice + weightPrice);
+            
+            document.getElementById('result-service').textContent = serviceName;
+            document.getElementById('result-distance').textContent = distance + ' km';
+            document.getElementById('result-weight').textContent = weight + ' kg';
+            document.getElementById('result-price').textContent = totalPrice + '€';
+            
+            const resultCard = document.getElementById('price-result');
+            resultCard.classList.add('active');
+            resultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+
+        ['service-type', 'distance', 'weight'].forEach(id => {
+            document.getElementById(id).addEventListener('input', function() {
+                document.getElementById('price-result').classList.remove('active');
+            });
+        });
+

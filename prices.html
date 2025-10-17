@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çmimet - Erli Trans</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+       <!-- header dhe navigim-->
+    <div class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html"><img src="images/logo.png" alt="Erli Trans logo"></a>
+                </div>
+        <!-- Navigation bubble -->
+         <div class="nav-bubble">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Kryefaqja</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">Rreth Nesh</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="sherbime.html" class="nav-link">Shërbimet</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="kontakt.html" class="nav-link">Kontakt</a>
+                    </li>
+                </ul>
+            </div>
+
+    <div class="nav-actions">
+    <a href="tel:+355692002222" class="btn-emergency" aria-label="Telefon urgjence +355 69 200 2222">
+        <span class="btn-emergency-icon" aria-hidden="true">📞</span>
+        <span class="btn-emergency-text">Urgjencë</span>
+    </a>
+    </div>
+
+    <!-- hamburger menu -->
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </div>
+    
+        <!-- Pricing Hero -->
+    <section class="pricing-hero">
+        <div class="pricing-hero-content">
+            <h1>Çmimet dhe Ofertat</h1>
+            <p>Ofrojmë çmime konkurruese dhe transparente për të gjitha shërbimet tona. Llogaritni çmimin tuaj tani!</p>
+        </div>
+    </section>
+
+
+            <!-- Kalkulator i Çmimeve -->
+            <main class="page-content">
+            <div class="container">
+                <div class="calculator-section">
+                <h2><i class="fas fa-calculator"></i> Kalkulator i Çmimeve</h2>
+                <form id="priceCalculatorForm">
+                    <div class="calculator-grid">
+                        <div class="calculator-field">
+                            <label for="service-type">Lloji i Shërbimit:</label>
+                            <select id="service-type" required>
+                                <option value="">Zgjidhni shërbimin</option>
+                                <option value="freight">Transport Mallrash</option>
+                                <option value="express">Transport Ekspres</option>
+                            </select>
+                        </div>
+                        
+                        <div class="calculator-field">
+                            <label for="distance">Distanca (km):</label>
+                            <input type="number" id="distance" min="1" placeholder="p.sh. 500" required>
+                        </div>
+                        
+                        <div class="calculator-field">
+                            <label for="weight">Pesha (kg):</label>
+                            <input type="number" id="weight" min="1" placeholder="p.sh. 1000" required>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="calculate-btn">
+                        <i class="fas fa-calculator"></i>
+                        Llogarit Çmimin
+                    </button>
+                </form>
+
+                <div id="price-result" class="price-result-card">
+                    <div class="result-header">
+                        <div class="result-icon">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <h3>Vlerësimi i Çmimit</h3>
+                    </div>
+                    
+                    <div class="result-details">
+                        <div class="result-item">
+                            <strong>Shërbimi:</strong>
+                            <span id="result-service"></span>
+                        </div>
+                        <div class="result-item">
+                            <strong>Distanca:</strong>
+                            <span id="result-distance"></span>
+                        </div>
+                        <div class="result-item">
+                            <strong>Pesha:</strong>
+                            <span id="result-weight"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="total-price">
+                        <div>Çmimi i Vlerësuar</div>
+                        <span class="amount" id="result-price"></span>
+                    </div>
+                    
+                    <p class="result-disclaimer">
+                        *Ky është një çmim i vlerësuar. Kontaktoni për një ofertë të saktë dhe të detajuar.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Paketat e Shërbimeve -->
+            <div class="pricing-packages">
+                <h1>Paketat Tona</h1>
+                <div class="packages-grid">
+                    <div class="package-card">
+                        <h3>Paketa Bazë</h3>
+                        <div class="package-price">Nga 150€</div>
+                        <ul class="package-features">
+                            <li>Transport brenda vendit</li>
+                            <li>Sigurim bazë</li>
+                            <li>Tracking online</li>
+                            <li>Suport 24/7</li>
+                            <li>Dorëzim standard</li>
+                        </ul>
+                        <a href="kontakt.html" class="btn btn-outline">Kërko Ofertë</a>
+                    </div>
+                    
+                    <div class="package-card featured">
+                        <div class="popular-badge">Më e Kërkuara</div>
+                        <h3>Paketa Standard</h3>
+                        <div class="package-price">Nga 300€</div>
+                        <ul class="package-features">
+                            <li>Transport ndërkombëtar</li>
+                            <li>Sigurim i plotë</li>
+                            <li>Tracking real-time</li>
+                            <li>Magazinim për 7 ditë</li>
+                            <li>Suport me prioritet</li>
+                            <li>Raportim i detajuar</li>
+                        </ul>
+                        <a href="kontakt.html" class="btn btn-primary">Kërko Ofertë</a>
+                    </div>
+                    
+                    <div class="package-card">
+                        <h3>Paketa Premium</h3>
+                        <div class="package-price">Nga 500€</div>
+                        <ul class="package-features">
+                            <li>Transport ekspres</li>
+                            <li>Sigurim premium</li>
+                            <li>Tracking real-time</li>
+                            <li>Magazinim për 30 ditë</li>
+                            <li>Menaxher personal</li>
+                            <li>Zgjidhje të personalizuara</li>
+                            <li>Prioritet absolut</li>
+                        </ul>
+                        <a href="kontakt.html" class="btn btn-outline">Kërko Ofertë</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+     <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <p>Transport i besueshem dhe profesional për biznesin tuaj. Ekspertë në logjistikë dhe zgjidhje transporti.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                     <div class="logo">
+                    <a href="index.html"><img src="images/logo.png" alt="Erli Trans logo"></a>
+                </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Shërbimet</h3>
+                    <ul>
+                        <li><a href="#">Transport Mallrash</a></li>
+                        <li><a href="#">Transport Pasagjerësh</a></li>
+                        <li><a href="#">Logjistikë</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Kompania</h3>
+                    <ul>
+                        <li><a href="about.html">Rreth Nesh</a></li>
+                        <li><a href="#">Karriera</a></li>
+                        <li><a href="#">Lajme</a></li>
+                        <li><a href="#">Partnerët</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Rruga Pjetër Budi, 13 Tirana</p>
+                        <p><i class="fas fa-phone"></i> +355 69 200 2222</p>
+                        <p><i class="fas fa-envelope"></i> info@erlitrans.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Erli Trans. Të gjitha të drejtat e rezervuara.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="JS/script.js"></script>
+</body>
+</html>
