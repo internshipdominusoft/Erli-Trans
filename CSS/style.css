@@ -380,9 +380,10 @@ transform: translateY(-2px);
 
 /* stilizimi i rreth nesh */
 .about-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 3rem;
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: 1fr;
+    gap: 2rem;
     align-items: start;
 }
 
@@ -1892,3 +1893,111 @@ footer .logo img {
                 font-size: 2.5rem;
             }
         }
+/* alert modal */
+.alert-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(30, 32, 63, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.alert-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.alert-content {
+    background: var(--card-surface);
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(30, 64, 175, 0.3);
+    border-top: 4px solid var(--accent);
+    transform: scale(0.7);
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.alert-modal.active .alert-content {
+    transform: scale(1);
+}
+
+.alert-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: var(--white);
+    font-size: 2rem;
+}
+
+.alert-title {
+    color: var(--dark);
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.alert-message {
+    color: var(--secondary);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.alert-button {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: var(--white);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.alert-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(30, 64, 175, 0.3);
+}
+
+.alert-button:active {
+    transform: translateY(0);
+}
+
+/* error per form validation */
+.form-error {
+    color: #dc2626;
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+    display: none;
+}
+
+.form-group.error input,
+.form-group.error textarea {
+    border-color: #dc2626;
+}
+
+.form-group.error .form-error {
+    display: block;
+}
