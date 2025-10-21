@@ -68,43 +68,162 @@ header.classList.remove('scrolled');
 }
 });
 
-// forma e kontaktit
+// Contact form
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
+    // alert modal
+    const alertModal = document.createElement('div');
+    alertModal.className = 'alert-modal';
+    alertModal.innerHTML = `
+        <div class="alert-content">
+            <div class="alert-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h3 class="alert-title">Sukses!</h3>
+            <p class="alert-message">Faleminderit! Mesazhi juaj u dërgua me sukses.</p>
+            <button class="alert-button">
+                <i class="fas fa-thumbs-up"></i>
+                Në rregull
+            </button>
+        </div>
+    `;
+    document.body.appendChild(alertModal);
+
+    // mbyllja e alert
+    const alertButton = alertModal.querySelector('.alert-button');
+    alertButton.addEventListener('click', () => {
+        alertModal.classList.remove('active');
+    });
+
+    // mbyllet kur klikojme jashte
+    alertModal.addEventListener('click', (e) => {
+        if (e.target === alertModal) {
+            alertModal.classList.remove('active');
+        }
+    });
+
+    // form validation 
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
- //validimi
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone') ? document.getElementById('phone').value : '';
-    const message = document.getElementById('message').value;
+        clearErrors();
         
-        if (!name || !email || !message) {
-            alert('Ju lutem plotësoni të gjitha fushat e detyrueshme');
-            return;
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone') ? document.getElementById('phone').value.trim() : '';
+        const message = document.getElementById('message').value.trim();
+        
+        let isValid = true;
+        
+        // name validation
+        if (!name) {
+            showError('name', 'Ju lutem shkruani emrin tuaj të plotë');
+            isValid = false;
         }
         
-        if (!email.includes('@')) {
-            alert('Ju lutem shkruani një email valid');
-            return;
-        }
-
-        if (phone && !/^\d+$/.test(phone)) {
-            alert('Ju lutem shkruani vetëm numra në fushën e telefonit (pa shkronja ose simbole).');
-            return;
+        // email validation
+        if (!email) {
+            showError('email', 'Ju lutem shkruani adresën tuaj të emailit');
+            isValid = false;
+        } else if (!isValidEmail(email)) {
+            showError('email', 'Ju lutem shkruani një email valid');
+            isValid = false;
         }
         
+        // phone validation
+        if (phone && !isValidPhone(phone)) {
+            showError('phone', 'Ju lutem shkruani vetëm numra në fushën e telefonit');
+            isValid = false;
+        }
+        
+        // message validation
+        if (!message) {
+            showError('message', 'Ju lutem shkruani mesazhin tuaj');
+            isValid = false;
+        } else if (message.length < 10) {
+            showError('message', 'Mesazhi duhet të jetë të paktën 10 karaktere');
+            isValid = false;
+        }
+        
+        if (!isValid) return;
+        
+        // loading
         const submitBtn = this.querySelector('button[type="submit"]');
-        submitBtn.textContent = 'Duke dërguar...';
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Duke dërguar...';
         submitBtn.disabled = true;
         
+        // stimulim per submission
         setTimeout(() => {
-            alert('Faleminderit! Mesazhi juaj u dërgua me sukses.');
+            // Reset form
             contactForm.reset();
-            submitBtn.textContent = 'Dërgo Mesazhin';
+            
+            // alert me sukses
+            showAlert();
+            
+            // reset button
+            submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
-        }, 1500);
+        }, 2000);
+    });
+
+    function showError(fieldId, message) {
+        const field = document.getElementById(fieldId);
+        const formGroup = field.closest('.form-group');
+        formGroup.classList.add('error');
+        
+        let errorElement = formGroup.querySelector('.form-error');
+        if (!errorElement) {
+            errorElement = document.createElement('div');
+            errorElement.className = 'form-error';
+            formGroup.appendChild(errorElement);
+        }
+        errorElement.textContent = message;
+        
+        // Scroll te errori i pare
+        if (!document.querySelector('.form-group.error:first-child')) {
+            field.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    }
+    
+    function clearErrors() {
+        document.querySelectorAll('.form-group').forEach(group => {
+            group.classList.remove('error');
+        });
+    }
+    
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+    
+    function isValidPhone(phone) {
+        const phoneRegex = /^[\d\s\-\+\(\)]+$/;
+        return phoneRegex.test(phone);
+    }
+    
+    function showAlert() {
+        alertModal.classList.add('active');
+        
+        // mbyllje pas 5 sek
+        setTimeout(() => {
+            if (alertModal.classList.contains('active')) {
+                alertModal.classList.remove('active');
+            }
+        }, 5000);
+    }
+    
+    // validim
+    const formInputs = contactForm.querySelectorAll('input, textarea');
+    formInputs.forEach(input => {
+        input.addEventListener('input', function() {
+            const formGroup = this.closest('.form-group');
+            formGroup.classList.remove('error');
+        });
+        
+        input.addEventListener('blur', function() {
+            // Optional: Add real-time validation on blur
+        });
     });
 }
 
