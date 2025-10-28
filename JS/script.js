@@ -105,6 +105,7 @@ if (contactForm) {
     // form validation 
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
+        e.stopPropagation();
         
         clearErrors();
         
@@ -379,6 +380,62 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeDeliveryCalculator();
 });
 
+// About page carousel: 3 slides, auto-rotate, pause on hover, dot controls
+function initializeAboutCarousel() {
+    const carousel = document.querySelector('.about-carousel');
+    if (!carousel) return;
+
+    const slides = Array.from(carousel.querySelectorAll('.slide'));
+    const dots = Array.from(carousel.querySelectorAll('.dot'));
+    let current = slides.findIndex(s => s.classList.contains('active'));
+    if (current === -1) current = 0;
+    let intervalId = null;
+    const intervalMs = 4000;
+
+    function goTo(index) {
+        index = (index + slides.length) % slides.length;
+        slides.forEach((s, i) => s.classList.toggle('active', i === index));
+        dots.forEach((d, i) => d.classList.toggle('active', i === index));
+        current = index;
+    }
+
+    function start() {
+        stop();
+        intervalId = setInterval(() => {
+            goTo((current + 1) % slides.length);
+        }, intervalMs);
+    }
+
+    function stop() {
+        if (intervalId) {
+            clearInterval(intervalId);
+            intervalId = null;
+        }
+    }
+
+    // dot clicks
+    dots.forEach(dot => {
+        dot.addEventListener('click', (e) => {
+            const idx = Number(dot.dataset.index);
+            goTo(idx);
+            // restart timing after user interaction
+            start();
+        });
+    });
+
+    // pause on hover / focus
+    carousel.addEventListener('mouseenter', stop);
+    carousel.addEventListener('mouseleave', start);
+    carousel.addEventListener('focusin', stop);
+    carousel.addEventListener('focusout', start);
+
+    // init
+    goTo(current);
+    start();
+}
+
+document.addEventListener('DOMContentLoaded', initializeAboutCarousel);
+
   // Llogarites cmimesh
         document.getElementById('priceCalculatorForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -426,92 +483,5 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-// carousel
-
-document.addEventListener('DOMContentLoaded', function() {
-    const carousel = document.querySelector('.carousel');
-    const slides = document.querySelectorAll('.carousel-slide');
-    const dots = document.querySelectorAll('.carousel-dot');
-    let currentSlide = 0;
-    const totalSlides = slides.length;
-    const slideInterval = 4000;
-    let autoplayTimer = null;
-
-    const navButtons = `
-        <button class="carousel-nav prev">&#10094;</button>
-        <button class="carousel-nav next">&#10095;</button>`;
-    carousel.insertAdjacentHTML('beforeend', navButtons);
-
-    const prevButton = carousel.querySelector('.prev');
-    const nextButton = carousel.querySelector('.next');
-
-    function showSlide(index) {
-        if (index >= totalSlides) index = 0;
-        if (index < 0) index = totalSlides - 1;
-
-        slides.forEach(slide => {
-            slide.style.opacity = '0';
-            slide.style.display = 'none';
-        });
-
-        slides[index].style.display = 'block';
-        setTimeout(() => {
-            slides[index].style.opacity = '1';
-        }, 10);
-
-        dots.forEach(dot => dot.classList.remove('active'));
-        dots[index].classList.add('active');
-
-        currentSlide = index;
-    }
-
-    function nextSlide() {
-        showSlide(currentSlide + 1);
-    }
-
-    function prevSlide() {
-        showSlide(currentSlide - 1);
-    }
-
-    function startAutoplay() {
-        if (autoplayTimer) clearInterval(autoplayTimer);
-        autoplayTimer = setInterval(nextSlide, slideInterval);
-    }
-
-    function stopAutoplay() {
-        if (autoplayTimer) {
-            clearInterval(autoplayTimer);
-            autoplayTimer = null;
-        }
-    }
-
-    prevButton.addEventListener('click', () => {
-        stopAutoplay();
-        prevSlide();
-        startAutoplay();
-    });
-
-    nextButton.addEventListener('click', () => {
-        stopAutoplay();
-        nextSlide();
-        startAutoplay();
-    });
-
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            stopAutoplay();
-            showSlide(index);
-            startAutoplay();
-        });
-    });
-
-    // ndalon ne hover
-    carousel.addEventListener('mouseenter', stopAutoplay);
-    carousel.addEventListener('mouseleave', startAutoplay);
-
-    // Initialize
-    showSlide(0);
-    startAutoplay();
-});
 
 

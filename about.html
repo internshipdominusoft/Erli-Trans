@@ -54,75 +54,110 @@
         </nav>
     </div>
 
-    <!--seksioni kryesor -->
+     <!--seksioni kryesor -->
     <main class="page-content">
         <div class="container">
             <h1>Rreth Nesh</h1>
-            <div class="about-content">
-                <div class="about-text">
+            
+            
+            
+
+            <!-- Info Cards Grid -->
+            <div class="about-cards-grid">
+                <div class="about-card">
+                    <div class="about-card-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
                     <h2>Historia Jonë</h2>
                     <p>Erli Trans është themeluar me qëllim të ofrimit të shërbimeve të cilësisë së lartë në fushën e transportit. Me vite përvojë, ne kemi krijuar një reputacion të fortë për besueshmëri dhe profesionalizëm.</p>
-                    
+                </div>
+
+                <div class="about-card">
+                    <div class="about-card-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
                     <h2>Misioni Ynë</h2>
                     <p>Misioni ynë është të ofrojmë shërbime transporti të sigurta, të shpejta dhe me kosto konkurruese për klientët tanë, duke kontribuar në zhvillimin e bizneseve të tyre dhe në kënaqësinë e përdoruesve tanë.</p>
-                    
+                </div>
+
+                <div class="about-card">
+                    <div class="about-card-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
                     <h2>Vizioni Ynë</h2>
                     <p>Synojmë të jemi kompania më e besueshme dhe inovative e transportit në rajon, duke zgjeruar vazhdimisht shërbimet tona dhe duke përmirësuar cilësinë e shërbimit.</p>
-                    
-                    <h2>Vlerat Tona</h2>
-                    <ul>
-                        <li>Besueshmëria dhe profesionalizmi</li>
-                        <li>Siguria në çdo transport</li>
-                        <li>Kujdesi ndaj klientit</li>
-                        <li>Inovacioni dhe përmirësimi i vazhdueshëm</li>
-                    </ul>
                 </div>
             </div>
-<div class="about-image">
-    <div class="image-carousel">
-        <div class="carousel-container">
-            <!-- Slide 1 -->
-            <div class="carousel-slide active">
-                <img src="images/carousel1.webp" alt="Erli Trans - Flota jonë moderne">
-                <div class="carousel-caption">
-                    <h3>Flota Jonë Moderne</h3>
-                    <p>Mjete të avancuara për transport të sigurt</p>
+
+            <!-- Vlerat section -->
+            <div class="values-section">
+                <h2>Vlerat Tona</h2>
+                <div class="values-grid">
+                    <div class="value-item">
+                        <i class="fas fa-handshake"></i>
+                        <h3>Besueshmëria</h3>
+                        <p>Profesionalizëm në çdo aspekt të punës sonë</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Siguria</h3>
+                        <p>Prioriteti jonë në çdo transport</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="fas fa-heart"></i>
+                        <h3>Kujdesi</h3>
+                        <p>Vëmendje ndaj çdo detaji për klientët</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Inovacioni</h3>
+                        <p>Përmirësim i vazhdueshëm i shërbimeve</p>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Slide 2 -->
-            <div class="carousel-slide">
-                <img src="images/carousel2.jpg" alt="Erli Trans - Ekipi profesional">
-                <div class="carousel-caption">
-                    <h3>Ekip Profesional</h3>
-                    <p>Shoferë të certifikuar dhe të përvojshëm</p>
-                </div>
-            </div>
-            
-            <!-- Slide 3 -->
-            <div class="carousel-slide">
-                <img src="images/carousel3.jpg" alt="Erli Trans - Magazinimi modern">
-                <div class="carousel-caption">
-                    <h3>Magazinim Modern</h3>
-                    <p>Hapësira të sigurta dhe të monitoruara 24/7</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Navigation dots -->
-        <div class="carousel-dots">
-            <span class="carousel-dot active"></span>
-            <span class="carousel-dot"></span>
-            <span class="carousel-dot"></span>
-        </div>
-    </div>
-</div>
             </div>
         </div>
     </main>
 
+   <!-- Carousel në krye -->
+            <div class="about-image">
+                <div class="about-carousel" aria-roledescription="carousel" aria-label="Galeria e kompanisë">
+                    <div class="slides">
+                        <div class="slide active">
+                            <img src="images/carousel1.webp" alt="Kamion 40T" width="800" height="360">
+                            
+                            <div class="carousel-caption">
+                                <h3>Flota Jonë Moderne</h3>
+                                <p>Mjete të avancuara për transport të sigurt</p>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <img src="images/carousel2.jpg" alt="Furgon Express" width="800" height="360">
+                            <div class="carousel-caption">
+                                
+                                <h3>Magazinim Modern</h3>
+                                <p>Hapësira të sigurta dhe të monitoruara 24/7</p>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <img src="images/carousel3.jpg" alt="Autobus 50 Ulëse" width="800" height="360">
+                            <div class="carousel-caption">
+                                
+                                <h3>Ekip Profesional</h3>
+                                <p>Shoferë të certifikuar dhe me përvojë</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-dots" role="tablist" aria-label="Kontrolli i slides">
+                        <button class="dot active" data-index="0" aria-label="Slide 1" role="tab"></button>
+                        <button class="dot" data-index="1" aria-label="Slide 2" role="tab"></button>
+                        <button class="dot" data-index="2" aria-label="Slide 3" role="tab"></button><br><br>
+                    </div>
+                </div>
+            </div>
+            <br>
+
     <section id="fleet">
-        <main class="page-content">
         <div class="container">
             <h1>Flota Jonë</h1>
             
@@ -133,22 +168,11 @@
             <!-- Galeria interaktive e automjeteve -->
             <div class="fleet-gallery">
                 <h2>Automjetet Tona</h2>
-                
-                <div class="vehicle-filters">
-                    <button class="filter-btn active" data-filter="all">Të Gjitha</button>
-                    <button class="filter-btn" data-filter="truck">Kamionë</button>
-                    <button class="filter-btn" data-filter="van">Furgonë</button>
-                    <button class="filter-btn" data-filter="bus">Autobusë</button>
-                    <button class="filter-btn" data-filter="special">Specialë</button>
-                </div>
 
                 <div class="vehicles-grid">
                     <div class="vehicle-card" data-type="truck">
                         <div class="vehicle-image">
-                            <img src="images/truck-1.jpg" alt="Kamion i madh për transport mallrash">
-                            <div class="vehicle-overlay">
-                                <button class="view-details" data-vehicle="truck1">Shiko Detajet</button>
-                            </div>
+                            <img src="images/about-truck.jpg" alt="Kamion i madh për transport mallrash">
                         </div>
                         <div class="vehicle-info">
                             <h3>Kamion 40T</h3>
@@ -162,10 +186,7 @@
 
                     <div class="vehicle-card" data-type="van">
                         <div class="vehicle-image">
-                            <img src="images/van-1.jpg" alt="Furgon për dërgesa të shpejta">
-                            <div class="vehicle-overlay">
-                                <button class="view-details" data-vehicle="van1">Shiko Detajet</button>
-                            </div>
+                            <img src="images/about-delivery.webp" alt="Furgon për dërgesa të shpejta">
                         </div>
                         <div class="vehicle-info">
                             <h3>Furgon Express</h3>
@@ -179,10 +200,7 @@
 
                     <div class="vehicle-card" data-type="bus">
                         <div class="vehicle-image">
-                            <img src="images/bus-1.jpg" alt="Autobus për transport pasagjerësh">
-                            <div class="vehicle-overlay">
-                                <button class="view-details" data-vehicle="bus1">Shiko Detajet</button>
-                            </div>
+                            <img src="images/about-bus.jpg" alt="Autobus për transport pasagjerësh">
                         </div>
                         <div class="vehicle-info">
                             <h3>Autobus 50 Ulëse</h3>
@@ -195,6 +213,8 @@
                     </div>
                 </div>
             </div>
+
+            
 
             <!-- Statistikat e flotes -->
             <div class="fleet-stats">
@@ -240,57 +260,59 @@
                 </div>
             </div>
         </div>
-    </main>
-</section>
+    </section>
 
 
-     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <p>Transport i besueshëm dhe profesional për biznesin tuaj. Ekspertë në logjistikë dhe zgjidhje transporti.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                     <div class="logo">
+    <!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <p>Transport i besueshëm dhe profesional për biznesin tuaj. Ekspertë në logjistikë dhe zgjidhje transporti.</p>
+                <div class="social-links">
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i></a>
+                </div>
+                <div class="logo">
                     <a href="index.html"><img src="images/logo.png" alt="Erli Trans logo"></a>
                 </div>
-                </div>
-                <div class="footer-section">
-                    <h3>Shërbimet</h3>
-                    <ul>
-                        <li><a href="#">Transport Mallrash</a></li>
-                        <li><a href="#">Transport Pasagjerësh</a></li>
-                        <li><a href="#">Magazinim</a></li>
-                        <li><a href="#">Logjistikë</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Kompania</h3>
-                    <ul>
-                        <li><a href="about.html">Rreth Nesh</a></li>
-                        <li><a href="#">Karriera</a></li>
-                        <li><a href="#">Lajme</a></li>
-                        <li><a href="#">Partnerët</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Kontakt</h3>
-                    <div class="contact-info">
-                        <p><i class="fas fa-map-marker-alt"></i> Rruga Pjetër Budi, 13 Tirana</p>
-                        <p><i class="fas fa-phone"></i> +355 69 200 2222</p>
-                        <p><i class="fas fa-envelope"></i> info@erlitrans.com</p>
-                    </div>
-                </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Erli Trans. Të gjitha të drejtat e rezervuara.</p>
+            <div class="footer-section">
+                <h3>Shërbimet</h3>
+                <ul>
+                    <li><a href="sherbime.html#transport-mallrash">Transport Mallrash</a></li>
+                    <li><a href="sherbime.html#transport-pasagjeresh">Transport Pasagjerësh</a></li>
+                    <li><a href="sherbime.html#depo-magazinim">Magazinim</a></li>
+                    <li><a href="sherbime.html#depo-magazinim">Logjistikë</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Kompania</h3>
+                <ul>
+                    <li><a href="about.html">Rreth Nesh</a></li>
+                    <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">Karriera</a></li>
+                    <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"> Lajme </a></li>
+                    <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">Partnerët</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Kontakt</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt"></i> Rruga Pjetër Budi, 13 Tirana</p>
+                    <p><i class="fas fa-phone"></i> +355 69 200 2222</p>
+                    <p><i class="fas fa-envelope"></i> info@erlitrans.com</p>
+                </div>
             </div>
         </div>
-    </footer>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Erli Trans. Të gjitha të drejtat e rezervuara.</p>
+        </div>
+    </div>
+</footer>
 
     <script src="JS/script.js"></script>
 </body>
